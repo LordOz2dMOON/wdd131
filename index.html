@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Oswald Ojo" />
+    <meta
+      name="description"
+      content="Dynamic Web Fundamentals (WDD 131) project showcasing my prerequisite HTML and CSS skills.
+    This webpage would include a header, body section and footer, they will be layed out using css grid"
+    />
+    <script src="./scripts/getdates.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>WDD 131 - Dynamic Web Fundamentals - Oswald O. Ojo</title>
+  </head>
+  <body>
+    <header>
+      <h1>WDD 131: Dyanmic Web Fundamentals - Oswald O. Ojo</h1>
+      <nav>
+        <ul class="menu-ul">
+            <li><a href="#" class="active">Home</a>
+          <li>
+            <a href="https://www.linkedin.com/in/oswaldojo/">LinkedIn </a>
+          </li>
+          <li><a href="https://byui.instructure.com/">I-Learn</a></li>
+          <li>
+            <a
+              href="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/11?lang=eng"
+              >Scripture</a
+            >
+          </li>
+          <li><a href="#">Final Project</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="card card1">
+        <h2 class="second-headings">About Me</h2>
+        <div class="about-me">
+          <p class="first-paragraph">
+            My name is Oswald Ojo, some people call me Oz for short. I was born
+            in Edo state, Nigeria but I currently reside in Lagos, Nigeria. I am
+            currently loooking for entry level roles in the software
+            engineering, data analysis and customer support fields. I love
+            football and video games alot.
+          </p>
+          <img src="images/oswald-ai.jpg" alt="picture of oswald" width="5" />
+        </div>
+
+        <h3>Lagos, Nigeria</h3>
+        <hr />
+        <div class="country-details">
+            <figure>
+                <img src="./images/Flag_of_Nigeria.svg" alt="Flag" />
+                <figcaption>Official Flag of Nigeria</figcaption>
+            </figure>
+          <p>
+            Nigeria is the most populated country in Africa and the 7th most
+            populated country in the world. Nigeria covers 356,668 sq miles
+            (923,7770 sq kilometers). Nigeria is home to more than 250 ethnic
+            groups, including the Hausa in the north, Yoruba in the west, and
+            Igbo in the east. Nigeria has abundant natural resources, notably
+            large deposits of petroleum and natural gas.
+          </p>
+        </div>
+      </section>
+      <section class="card">
+        <h2 class="second-headings">Web Dev Resources</h2>
+        <div class="resources">
+          <ul class="resources-ul">
+            <li><a href="https://www.w3schools.com/">W3Schools</a></li>
+            <li><a href="https://unsplash.com//">Unsplash</a></li>
+            <li>
+              <a href="https://byui-cse.github.io/wdd330-ww-course/resources/frontend-resources.html/">Web Dev Resources</a>
+            </li>
+            <li>
+              <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Css Grid Tricks</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>
+        © <span id="currentyear"></span> <i class="fa fa-futbol-o"></i>  Oswald
+        Ojo  <i class="fa fa-futbol-o" aria-hidden="true"></i> Nigeria
+      </p>
+      <p id="lastModified"></p>
+    </footer>
+  </body>
+</html>
