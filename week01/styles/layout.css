@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
 }
 
@@ -17,20 +18,31 @@ body {
 }
 
 header {
+    position: relative;
     grid-area: header;
     background-color: #333;
     color: white;
+    height: 100px;
     padding: 20px;
+    width: 100%;
 }
 
 nav {
     grid-area: nav;
     background-color: #000;
     color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px;
 }
 
 nav ul {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -63,4 +75,5 @@ footer {
     color: white;
     padding: 20px;
     text-align: center;
+    height: 100px;
 }
