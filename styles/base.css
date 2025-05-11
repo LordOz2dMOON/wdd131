@@ -1,0 +1,189 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+/* Header styles - fixed to match example */
+header {
+    background-color: #1e4e79;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    margin-top: 1rem;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+}
+
+/* Navigation styles - fixed to be full width and at bottom of header */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: auto; /* Push to bottom of header */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Main content styles */
+main {
+    max-width: 1200px;
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Changed to equal widths like in example */
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    background-color: #1e4e79;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* About Me card content - fixed layout to match example */
+.card-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Profile section layout */
+.profile-section {
+    display: flex;
+    gap: 1rem;
+}
+
+.text-content {
+    flex: 3;
+}
+
+.profile-image {
+    flex: 1;
+    text-align: center;
+    max-width: 200px;
+}
+
+.profile-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Country section layout */
+.country-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.flag-container {
+    max-width: 150px;
+    text-align: center;
+}
+
+.flag-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.country-info {
+    flex: 1;
+}
+
+.card h3 {
+    margin: 1rem 0;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+}
+
+/* Web Dev Resources section - centered items */
+.card:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+}
+
+.card:nth-child(2) h2 {
+    margin-bottom: 0;
+}
+
+.card:nth-child(2) ul {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the list */
+    list-style-position: inside;
+    margin: 1rem;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+}
+
+ul a {
+    color: #1e4e79;
+    text-decoration: none;
+}
+
+ul a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styles */
+footer {
+    background-color: #1e4e79;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}

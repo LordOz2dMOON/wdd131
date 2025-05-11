@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals - Oswald Ohiole Ojo - A portfolio page showcasing web development fundamentals and personal information">
+    <meta name="author" content="Oswald Ohiole Ojo">
+    <title>WDD 131 - Dynamic Web Fundamentals - Oswald Ohiole Ojo</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <script src="scripts/getdates.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>WDD 131: Dynamic Web Fundamentals - Oswald Ohiole Ojo</h1>
+        <nav>
+            <a href="https://www.linkedin.com/in/oswaldojo/">LinkedIn</a>
+            <a href="https://byupw.instructure.com/">Canvas</a>
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/nt/matt/11?lang=eng&id=p28#p28">Scripture</a>
+            <a href="#">Final Project</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>About Me</h2>
+            <div class="card-content">
+                <!-- Profile section with text and personal photo -->
+                <div class="profile-section">
+                    <div class="text-content">
+                        <p>My name is Oswald and I go by Oz. I was born in Edo state, Nigeria and live with my family in Lagos currently. I am currently studying for my first degree in software engineering at BYU-Idaho. I consider myself a free spirit and fun person. My hobbies include playing football, chess, reading and listening to music</p>
+                    </div>
+                    <div class="profile-image">
+                        <img src="images/my-ai-image.webp" alt="Photo of Oswald">
+                    </div>
+                </div>
+                
+                <!-- Country section with country name heading -->
+                <h3>Lagos, Nigeria</h3>
+                
+                <!-- Country info with flag on left, text on right -->
+                <div class="country-section">
+                    <div class="flag-container">
+                        <img src="images/nigerian-flag.webp" alt="Flag of Nigeria">
+                        <p>Official Flag of Nigeria</p>
+                    </div>
+                    <div class="country-info">
+                        <p>Nigeria is home to Nollywood, which is the second-largest film industry in the world by volume of film production, surpassed only by India's Bollywood (and ahead of Hollywood!)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Web Dev Resources</h2>
+            <ul>
+                <li><a href="https://dev.to">Dev.to Community</a></li>
+                <li><a href="https://www.smashingmagazine.com/">Smashing Magazine</a></li>
+                <li><a href="https://css-tricks.com/">CSS Tricks</a></li>
+                <li><a href="https://www.w3schools.com/">W3 Schools</a></li>
+                <li><a href="https://www.udemy.com/">Udemy</a></li>
+                <li><a href="https://placeholder.com/">Image Placeholder</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> &#9834; Oswald Ohiole Ojo &#9834; Lagos, Nigeria</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
