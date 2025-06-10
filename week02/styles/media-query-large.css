@@ -1,0 +1,51 @@
+/*
+ * layout.css
+ * This file contains responsive layout adjustments and
+ * specific styling changes based on viewport width.
+ */
+
+/*
+ * Containing Media Query: Applied at a viewport width of 500px or greater.
+ */
+@media only screen and (min-width: 500px) {
+    /*
+     * Change the header to a black background with white text.
+     */
+    header {
+        background-color: #000000; /* Black background */
+        color: #ffffff; /* White text */
+    }
+
+    /*
+     * Change the main element to display two columns of equal size.
+     */
+    main {
+        grid-template-columns: 1fr 1fr; /* Two columns, each taking an equal flexible fraction of space */
+    }
+
+    /*
+     * Note: You might want to adjust padding or other styles for header/main/footer
+     * within this media query if the increased width changes their appearance negatively.
+     * For example, if the header content becomes too spread out.
+     */
+}
+
+/*
+ * Existing styles from base.css or other layout rules can also be here,
+ * but the media query above will override conflicting properties when active.
+ */
+
+/* Example: If you wanted to add a specific layout for a two-column section */
+/*
+.two-column-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .two-column-section {
+        grid-template-columns: 1fr; // Stack columns on smaller screens
+    }
+}
+*/

@@ -1,0 +1,51 @@
+/*
+ * base.css
+ * This file contains foundational styles for the web page,
+ * including font settings, general element styling, and layout for main sections.
+ */
+
+/* Body Rule: Use the Google Font – Roboto */
+body {
+    font-family: 'Roboto', sans-serif; /* Apply the Roboto font, with sans-serif as a fallback */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    line-height: 1.6; /* Improve readability with slight line spacing */
+    color: #333; /* Default text color */
+    background-color: #f4f4f4; /* A very light grey background for the overall page */
+}
+
+/* Header, Main, and Footer Rules */
+header,
+main,
+footer {
+    max-width: 640px; /* Each has a maximum width of 640 pixels */
+    margin: 1rem auto; /* Centered on the page using margin: 1rem auto */
+    border: 1px solid #cce7ff; /* A faint bluish border */
+    padding: 1.5rem; /* Appropriate padding for content inside */
+    background-color: #e0f2f7; /* A light bluish background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Main Element Specific Rule: CSS Grid */
+main {
+    display: grid; /* Declare the main element to be a CSS grid */
+    grid-template-columns: 1fr; /* A grid template of only one column (1fr means one flexible fraction) */
+    grid-gap: 1rem; /* An equal gap of 1rem between grid items (sections in this case) */
+}
+
+/* Section Elements Rule */
+section {
+    padding: 1.5rem; /* Padding for content inside each section */
+    background-color: #ffffff; /* A lighter or white background for sections */
+}
+
+/* Basic Heading Styles for demonstration */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50; /* Darker text for headings */
+    margin-top: 0; /* Remove default top margin for headings */
+}
+
+/* Basic Paragraph Styles */
+p {
+    margin-bottom: 1rem; /* Space below paragraphs */
+}
