@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Oswald Ojo">
+    <meta name="description" content="This is a dubai themed webpage showcasing optimized images and a responsive design.">
+    <title>Dubai - The Desert City</title>
+    <link rel="stylesheet" href="styles/place.css">
+    <script src="scripts/place.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Dubai</h1>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <picture class="hero-image">
+                <source media="(max-width: 600px)" srcset="images/clay-banks-XFEJPXUqbYc-unsplash.webp">
+                <source media="(min-width: 601px)" srcset="images/christoph-schulz-7tb-b37yHx4-unsplash(1).webp">
+                <img src="images/ashim-d-silva-CwJb7ly-iqc-unsplash.webp" alt="image of dubai skyscrapers">
+            </picture>
+        </section>
+
+        <div class="content-wrapper">
+            <section class="data-section">
+                <h2>Data</h2>
+                <div class="data-content">
+                     <div class="data-item">
+                        <span class="label">Area:</span>
+                        <span class="value">4,114 sq km</span>
+                    </div>
+                     <div class="data-item">
+                        <span class="label">Population:</span>
+                        <span class="value">3,331,420</span>
+                    </div>
+                     <div class="data-item">
+                        <span class="label">Capital:</span>
+                        <span class="value">Dubai City</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Languages:</span>
+                        <span class="value">Arabic, English</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Currency:</span>
+                        <span class="value">UAE Dirham</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Time Zone:</span>
+                        <span class="value">UTC+4</span>
+                    </div>
+                     <div class="data-item">
+                        <span class="label">Calling Code:</span>
+                        <span class="value">+971</span>
+                    </div>
+                     <div class="data-item">
+                        <span class="label">Internet TLD:</span>
+                        <span class="value">.ae</span>
+                    </div>
+                </div>
+            </section>
+            <section class="weather-section">
+                <h2>Weather</h2>
+
+                <div class="weather-content">
+                     <div class="weather-content">
+                    <!-- SVG icon for mobile (hidden on desktop) -->
+                    <div class="weather-icon-mobile">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Sun -->
+                            <circle cx="50" cy="30" r="15" fill="#FFD700"/>
+                            <!-- Sun rays -->
+                            <path d="M50 8 L50 3 M50 57 L50 62 M72 30 L77 30 M23 30 L28 30 M66.5 13.5 L69.5 10.5 M66.5 46.5 L69.5 49.5 M33.5 46.5 L30.5 49.5 M33.5 13.5 L30.5 10.5" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
+                            <!-- Few clouds -->
+                            <ellipse cx="35" cy="60" rx="20" ry="12" fill="#87CEEB" opacity="0.7"/>
+                            <ellipse cx="65" cy="65" rx="18" ry="10" fill="#B0C4DE" opacity="0.5"/>
+                        </svg>
+                    </div>
+
+                     <div class="weather-item">
+                        <span class="label">Temperature:</span>
+                        <span class="value" id="temperature">35 °C</span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Conditions:</span>
+                        <span class="value">Sunny</span>
+                    </div>
+                    <div class="weather-item">
+                        <span class="label">Wind:</span>
+                        <span class="value" id="wind-speed">12 km/h</span>
+                    </div>
+                     <div class="weather-item">
+                        <span class="label">Wind Chill:</span>
+                        <span class="value" id="wind-chill">N/A</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy;<span id="currentyear"></span> 🏙️ Oswald Ojo 🏙️ Dubai</p>
+        <p>Last Modification: <span id="lastmodified"></span></p>
+    </footer>
+</body>
+</html>
