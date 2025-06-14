@@ -6,6 +6,9 @@
     <meta name="author" content="Oswald Ojo">
     <meta name="description" content="This is a dubai themed webpage showcasing optimized images and a responsive design.">
     <title>Dubai - The Desert City</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Prata&family=Roboto&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/place.css">
     <script src="scripts/place.js" defer></script>
 </head>
@@ -17,9 +20,9 @@
     <main>
         <section class="hero-section">
             <picture class="hero-image">
+                <source media="(min-width: 601px)" srcset="images/ashim-d-silva-CwJb7ly-iqc-unsplash.webp">
                 <source media="(max-width: 600px)" srcset="images/clay-banks-XFEJPXUqbYc-unsplash.webp">
-                <source media="(min-width: 601px)" srcset="images/christoph-schulz-7tb-b37yHx4-unsplash(1).webp">
-                <img src="images/ashim-d-silva-CwJb7ly-iqc-unsplash.webp" alt="image of dubai skyscrapers">
+                <img src="images/clay-banks-XFEJPXUqbYc-unsplash.webp" class="mobile-image">
             </picture>
         </section>
 
