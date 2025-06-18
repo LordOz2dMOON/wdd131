@@ -3,32 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This is a responsive picture album webpage showcasing various temples.">
+    <meta name="description" content="This is a responsive filtered temple webpage showcasing various temples with filtering capabilities.">
     <meta name="author" content="Oswald Ojo">
-    <title>WDD131 - Filtered Temples Webpage</title>
-    <link rel="stylesheet" href="styles/temples.css">
-    <link rel="stylesheet" href="styles/temples-large.css">
+    <title>WDD131 - Filtered Temple Webpage</title>
+    <link rel="stylesheet" href="styles/filtered-temples.css">
+    <link rel="stylesheet" href="styles/filtered-temples-large.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="scripts/temples.js" defer></script>
+    <script src="scripts/filtered-temples.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Temple Album</h1>
-         <button id="menu-button">☰</button>
+        <button id="menu-button">☰</button>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Old</a></li>
-                <li><a href="#">New</a></li>
-                <li><a href="#">Large</a></li>
-                <li><a href="#">Small</a></li>
+                <li><a href="#" data-filter="all" class="active">Home</a></li>
+                <li><a href="#" data-filter="old">Old</a></li>
+                <li><a href="#" data-filter="new">New</a></li>
+                <li><a href="#" data-filter="large">Large</a></li>
+                <li><a href="#" data-filter="small">Small</a></li>
             </ul>
         </nav>
     </header>
     <main>
-         <h2>Home</h2>
+        <h2 id="page-title">Home</h2>
+        
+        <div class="temple-grid" id="temple-container">
+            <!-- Temple cards will be dynamically generated here -->
+        </div>
     </main>
     <footer>
         <p>&copy;<span id="currentyear"></span> 🌴 Oswald Ojo 🌴 Lagos, Nigeria</p>
