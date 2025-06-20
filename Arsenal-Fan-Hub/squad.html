@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Squad & Statistics - Arsenal Fan Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/squad.css">
+    <script src="scripts/squad.js" defer></script>
+</head>
+<body>
+   <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">⚽ Arsenal Fan Hub</a>
+                <nav class="nav" id="nav">
+                    <a href="index.html">Home</a>
+                    <a href="squad.html" class="active">Squad</a>
+                    <a href="matches.html">Matches</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Squad & Statistics</h1>
+                <p class="page-subtitle">Explore our players, build formations, and analyze performance data</p>
+            </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('squad')">Player Profiles</button>
+            <button class="tab-btn" onclick="switchTab('formation')">Formation Builder</button>
+            <button class="tab-btn" onclick="switchTab('statistics')">Statistics</button>
+            <button class="tab-btn" onclick="switchTab('comparison')">Player Comparison</button>
+        </div>
+
+        <!-- Squad Tab -->
+        <div id="squad" class="tab-content active">
+            <div class="squad-grid" id="squadGrid">
+                <!-- Players will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Formation Builder Tab -->
+        <div id="formation" class="tab-content">
+            <div class="formation-container">
+                <h2 style="text-align: center; margin-bottom: 2rem; font-family: 'Roboto Slab', serif;">Formation Builder</h2>
+                
+                <div class="formation-controls">
+                    <button class="formation-btn active" onclick="setFormation('4-3-3')">4-3-3</button>
+                    <button class="formation-btn" onclick="setFormation('4-4-2')">4-4-2</button>
+                    <button class="formation-btn" onclick="setFormation('3-5-2')">3-5-2</button>
+                    <button class="formation-btn" onclick="setFormation('4-2-3-1')">4-2-3-1</button>
+                </div>
+
+                <div class="football-field">
+                    <div class="field-lines"></div>
+                    <div class="formation-line goalkeeper" id="goalkeeper-line">
+                        <div class="formation-player" draggable="true">RA</div>
+                    </div>
+                    <div class="formation-line defense" id="defense-line">
+                        <div class="formation-player" draggable="true">BW</div>
+                        <div class="formation-player" draggable="true">GG</div>
+                        <div class="formation-player" draggable="true">WS</div>
+                        <div class="formation-player" draggable="true">ZT</div>
+                    </div>
+                    <div class="formation-line midfield" id="midfield-line">
+                        <div class="formation-player" draggable="true">DR</div>
+                        <div class="formation-player" draggable="true">MO</div>
+                        <div class="formation-player" draggable="true">KH</div>
+                    </div>
+                    <div class="formation-line attack" id="attack-line">
+                        <div class="formation-player" draggable="true">BS</div>
+                        <div class="formation-player" draggable="true">GJ</div>
+                        <div class="formation-player" draggable="true">GM</div>
+                    </div>
+                </div>
+
+                <div class="player-bench" id="playerBench">
+                    <div class="bench-player" draggable="true">ES</div>
+                    <div class="bench-player" draggable="true">TT</div>
+                    <div class="bench-player" draggable="true">JT</div>
+                    <div class="bench-player" draggable="true">FV</div>
+                    <div class="bench-player" draggable="true">EN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Tab -->
+        <div id="statistics" class="tab-content">
+            <div class="stats-dashboard">
+                <div class="stats-card">
+                    <h3>Team Performance</h3>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Possession</span>
+                            <span class="stat-bar-value">62%</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 62%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Pass Accuracy</span>
+                            <span class="stat-bar-value">87%</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 87%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Shots on Target</span>
+                            <span class="stat-bar-value">45%</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <h3>Defensive Stats</h3>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Clean Sheets</span>
+                            <span class="stat-bar-value">8</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Tackles Won</span>
+                            <span class="stat-bar-value">76%</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 76%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Interceptions</span>
+                            <span class="stat-bar-value">12.3</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <h3>Attacking Stats</h3>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Goals Scored</span>
+                            <span class="stat-bar-value">28</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Assists</span>
+                            <span class="stat-bar-value">19</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Conversion Rate</span>
+                            <span class="stat-bar-value">18%</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 72%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <h3>Season Overview</h3>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Wins</span>
+                            <span class="stat-bar-value">15</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Draws</span>
+                            <span class="stat-bar-value">6</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 30%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-header">
+                            <span class="stat-bar-label">Losses</span>
+                            <span class="stat-bar-value">3</span>
+                        </div>
+                        <div class="stat-bar-fill">
+                            <div class="stat-bar-progress" style="width: 15%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Player Comparison Tab -->
+        <div id="comparison" class="tab-content">
+            <div class="comparison-container">
+                <div class="player-select">
+                    <h3 style="margin-bottom: 1rem;">Player 1</h3>
+                    <select class="select-dropdown" id="player1Select">
+                        <option value="">Select Player</option>
+                    </select>
+                    <div id="player1Card" style="display: none;"></div>
+                </div>
+
+                <div class="comparison-vs">VS</div>
+
+                <div class="player-select">
+                    <h3 style="margin-bottom: 1rem;">Player 2</h3>
+                    <select class="select-dropdown" id="player2Select">
+                        <option value="">Select Player</option>
+                    </select>
+                    <div id="player2Card" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="comparison-stats" id="comparisonStats" style="display: none;">
+                <!-- Comparison stats will be populated by JavaScript -->
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Arsenal Fan Hub</h3>
+                    <p>Your ultimate Arsenal experience. Stay connected with the latest news, match updates, and community discussions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Squad & Stats</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Match Center</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Contact Us</a>
+                </div>
+                <div>
+                    <h3>Follow Arsenal</h3>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Official Website</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Twitter</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 
+</body>
+</html>

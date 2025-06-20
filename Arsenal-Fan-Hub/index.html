@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal Fan Hub - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <script src="scripts/home.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">⚽ Arsenal Fan Hub</a>
+                <nav class="nav" id="nav">
+                    <a href="#" class="active">Home</a>
+                    <a href="squad.html" onclick="showSquadPage()">Squad</a>
+                    <a href="matches.html" onclick="showMatchCenter()">Matches</a>
+                    <a href="contact.html" onclick="showContact()">Contact</a>
+                </nav>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search Arsenal news, players, matches..." id="searchInput" onkeyup="searchContent()">
+            </div>
+
+            <section class="hero">
+                <h1 style="font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Welcome to Arsenal Fan Hub</h1>
+                <p style="font-size: 1.2rem; opacity: 0.9;">Your ultimate destination for all things Arsenal</p>
+                
+                <div class="countdown-container">
+                    <div class="countdown-title">Next Match Countdown</div>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">0</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">0</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">0</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">0</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 1.1rem;">Arsenal vs Manchester City - Emirates Stadium</p>
+                </div>
+            </section>
+
+            <div class="content-grid">
+                <div class="main-content">
+                    <div class="card">
+                        <h2>Latest Arsenal News</h2>
+                        <div id="newsContainer">
+                            <div class="news-item">
+                                <div class="news-meta">2 hours ago</div>
+                                <h3>Arsenal Prepare for Crucial Manchester City Clash</h3>
+                                <p>Mikel Arteta's side are gearing up for what could be a title-defining match against the current champions. The Gunners have been in excellent form...</p>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-meta">5 hours ago</div>
+                                <h3>Saka Injury Update: Positive Signs for Weekend</h3>
+                                <p>Bukayo Saka is expected to return to full training this week after recovering from a minor knock sustained during international duty...</p>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-meta">1 day ago</div>
+                                <h3>Emirates Stadium Expansion Plans Revealed</h3>
+                                <p>Arsenal have unveiled ambitious plans to increase the capacity of the Emirates Stadium by 10,000 seats, with construction set to begin...</p>
+                            </div>
+                        </div>
+                        <button class="btn" onclick="loadMoreNews()">Load More News</button>
+                    </div>
+
+                    <div class="card">
+                        <h2>Recent Results</h2>
+                        <div class="news-item">
+                            <h3>Arsenal 3-1 Liverpool</h3>
+                            <p>A dominant display at the Emirates saw the Gunners secure a crucial three points. Goals from Ødegaard, Saka, and Jesus sealed the victory.</p>
+                        </div>
+                        <div class="news-item">
+                            <h3>Chelsea 1-2 Arsenal</h3>
+                            <p>A thrilling London derby victory at Stamford Bridge. Late goals from Martinelli and Rice completed a stunning comeback.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="league-position">
+                        <div class="position-number">2</div>
+                        <h3>Premier League Position</h3>
+                        <p>74 points • 24 wins • 2 draws • 12 losses</p>
+                    </div>
+
+                    <div class="card">
+                        <h2>Fan Poll of the Week</h2>
+                        <h3>Who should start against Manchester City?</h3>
+                        <div class="poll-container">
+                            <div class="poll-option" onclick="vote('havertz')">
+                                <input type="radio" name="poll" value="havertz">
+                                <span>Kai Havertz</span>
+                            </div>
+                            <div class="poll-option" onclick="vote('jesus')">
+                                <input type="radio" name="poll" value="jesus">
+                                <span>Gabriel Jesus</span>
+                            </div>
+                            <div class="poll-option" onclick="vote('nketiah')">
+                                <input type="radio" name="poll" value="nketiah">
+                                <span>Eddie Nketiah</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="showPollResults()">Vote & See Results</button>
+                        <div class="poll-result" id="pollResults">
+                            <h4>Poll Results:</h4>
+                            <div>Kai Havertz: <div class="result-bar" style="width: 45%"></div> 45%</div>
+                            <div>Gabriel Jesus: <div class="result-bar" style="width: 35%"></div> 35%</div>
+                            <div>Eddie Nketiah: <div class="result-bar" style="width: 20%"></div> 20%</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2>Upcoming Fixtures</h2>
+                        <div class="news-item">
+                            <div class="news-meta">This Weekend</div>
+                            <h3>Arsenal vs Manchester City</h3>
+                            <p>Emirates Stadium • 3:00 PM</p>
+                        </div>
+                        <div class="news-item">
+                            <div class="news-meta">Next Week</div>
+                            <h3>Brighton vs Arsenal</h3>
+                            <p>Amex Stadium • 5:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Arsenal Fan Hub</h3>
+                    <p>Your ultimate Arsenal experience. Stay connected with the latest news, match updates, and community discussions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Squad & Stats</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Match Center</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Contact Us</a>
+                </div>
+                <div>
+                    <h3>Follow Arsenal</h3>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Official Website</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Twitter</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

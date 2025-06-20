@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal Fan Hub - Match Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/matches.css">
+    <script src="scripts/matches.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">⚽ Arsenal Fan Hub</a>
+                <nav class="nav" id="nav">
+                    <a href="index.html">Home</a>
+                    <a href="squad.html">Squad</a>
+                    <a href="matches.html" class="active">Matches</a>
+                    <a href="contact.html" onclick="showContact()">Contact</a>
+                </nav>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1>Match Center</h1>
+                <p>Your complete Arsenal match hub - fixtures, predictions, history & more</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('fixtures')">📅 Fixtures</button>
+                <button class="tab" onclick="showTab('history')">📊 History</button>
+                <button class="tab" onclick="showTab('stadiums')">🏟️ Stadiums</button>
+                <button class="tab" onclick="showTab('tickets')">🎫 Tickets</button>
+                <button class="tab" onclick="showTab('stats')">📈 Stats</button>
+                <button class="tab" onclick="showTab('live')">🔴 Live</button>
+            </div>
+
+            <!-- Fixtures Tab -->
+            <div id="fixtures" class="tab-content active">
+                <div class="fixtures-grid">
+                    <div class="fixture-card">
+                        <div class="fixture-teams">
+                            <div class="team">
+                                <div class="team-logo">ARS</div>
+                                <span>Arsenal</span>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <div class="team-logo" style="background: #6CABDD;">MCI</div>
+                                <span>Man City</span>
+                            </div>
+                        </div>
+                        <div class="fixture-info">
+                            <div>📅 Saturday, June 21, 2025</div>
+                            <div>⏰ 3:00 PM | 🏟️ Emirates Stadium</div>
+                        </div>
+                        <button class="predict-btn" onclick="showPredictionModal('Arsenal vs Man City', 'June 21')">Make Prediction</button>
+                    </div>
+
+                    <div class="fixture-card">
+                        <div class="fixture-teams">
+                            <div class="team">
+                                <div class="team-logo" style="background: #0057B8;">BRI</div>
+                                <span>Brighton</span>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <div class="team-logo">ARS</div>
+                                <span>Arsenal</span>
+                            </div>
+                        </div>
+                        <div class="fixture-info">
+                            <div>📅 Wednesday, June 25, 2025</div>
+                            <div>⏰ 5:30 PM | 🏟️ Amex Stadium</div>
+                        </div>
+                        <button class="predict-btn" onclick="showPredictionModal('Brighton vs Arsenal', 'June 25')">Make Prediction</button>
+                    </div>
+
+                    <div class="fixture-card">
+                        <div class="fixture-teams">
+                            <div class="team">
+                                <div class="team-logo">ARS</div>
+                                <span>Arsenal</span>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <div class="team-logo" style="background: #EF0107;">LIV</div>
+                                <span>Liverpool</span>
+                            </div>
+                        </div>
+                        <div class="fixture-info">
+                            <div>📅 Sunday, June 29, 2025</div>
+                            <div>⏰ 4:30 PM | 🏟️ Emirates Stadium</div>
+                        </div>
+                        <button class="predict-btn" onclick="showPredictionModal('Arsenal vs Liverpool', 'June 29')">Make Prediction</button>
+                    </div>
+
+                    <div class="fixture-card">
+                        <div class="fixture-teams">
+                            <div class="team">
+                                <div class="team-logo" style="background: #034694;">CHE</div>
+                                <span>Chelsea</span>
+                            </div>
+                            <div class="vs">VS</div>
+                            <div class="team">
+                                <div class="team-logo">ARS</div>
+                                <span>Arsenal</span>
+                            </div>
+                        </div>
+                        <div class="fixture-info">
+                            <div>📅 Saturday, July 5, 2025</div>
+                            <div>⏰ 12:30 PM | 🏟️ Stamford Bridge</div>
+                        </div>
+                        <button class="predict-btn" onclick="showPredictionModal('Chelsea vs Arsenal', 'July 5')">Make Prediction</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Match Reminders</h2>
+                    <p>Set reminders for upcoming matches and never miss a game!</p>
+                    <div id="reminders-list">
+                        <div style="margin: 1rem 0; padding: 1rem; background: rgba(220, 20, 60, 0.1); border-radius: 8px;">
+                            <strong>Arsenal vs Man City</strong> - June 21, 2025 at 3:00 PM
+                            <button style="float: right; background: var(--arsenal-red); color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 4px; cursor: pointer;" onclick="removeReminder(this)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div id="history" class="tab-content">
+                <div class="card">
+                    <h2>Recent Match History</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="match-result">Arsenal 3-1 Liverpool</div>
+                                <div class="match-date">June 15, 2025 • Emirates Stadium</div>
+                                <p>Dominant performance with goals from Ødegaard (12'), Saka (34'), and Jesus (67'). Liverpool pulled one back through Salah (78') but Arsenal controlled the tempo throughout.</p>
+                                <div style="margin-top: 1rem; color: var(--success); font-weight: 600;">⚽ Goals: Ødegaard, Saka, Jesus</div>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="match-result">Arsenal 4-0 Tottenham</div>
+                                <div class="match-date">June 1, 2025 • Emirates Stadium</div>
+                                <p>North London Derby masterclass! Arsenal demolished Spurs with a perfect team performance. Goals from Havertz (2), Saka, and Ødegaard sealed a memorable victory.</p>
+                                <div style="margin-top: 1rem; color: var(--success); font-weight: 600;">⚽ Goals: Havertz (2), Saka, Ødegaard</div>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="match-result">Newcastle 1-3 Arsenal</div>
+                                <div class="match-date">May 25, 2025 • St. James' Park</div>
+                                <p>Professional away performance at a difficult ground. Arsenal took control early with Jesus and Martinelli scoring in the first half, before Saka sealed the win after Newcastle's consolation.</p>
+                                <div style="margin-top: 1rem; color: var(--success); font-weight: 600;">⚽ Goals: Jesus, Martinelli, Saka</div>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="match-result" style="color: var(--warning);">Arsenal 2-2 Man United</div>
+                                <div class="match-date">May 18, 2025 • Emirates Stadium</div>
+                                <p>Frustrating draw after leading 2-0. Arsenal looked in complete control with early goals from Rice and Havertz, but United fought back with two second-half goals to earn a point.</p>
+                                <div style="margin-top: 1rem; color: var(--warning); font-weight: 600;">⚽ Goals: Rice, Havertz</div>
+                            </div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stadiums Tab -->
+            <div id="stadiums" class="tab-content">
+                <div class="stadium-grid">
+                    <div class="stadium-card">
+                        <div class="stadium-image">🏟️</div>
+                        <div class="stadium-details">
+                            <div class="stadium-name">Emirates Stadium</div>
+                            <div class="stadium-capacity">Capacity: 60,704</div>
+                            <p>Arsenal's iconic home since 2006. Experience the Electric Atmosphere of North London's finest stadium.</p>
+                            <button class="virtual-tour-btn" onclick="startVirtualTour('emirates')">360° Virtual Tour</button>
+                        </div>
+                    </div>
+
+                    <div class="stadium-card">
+                        <div class="stadium-image">⚽</div>
+                        <div class="stadium-details">
+                            <div class="stadium-name">Wembley Stadium</div>
+                            <div class="stadium-capacity">Capacity: 90,000</div>
+                            <p>The Home of Football. Arsenal's cup final and semi-final destination for major competitions.</p>
+                            <button class="virtual-tour-btn" onclick="startVirtualTour('wembley')">360° Virtual Tour</button>
+                        </div>
+                    </div>
+
+                    <div class="stadium-card">
+                        <div class="stadium-image">🎯</div>
+                        <div class="stadium-details">
+                            <div class="stadium-name">Training Ground</div>
+                            <div class="stadium-capacity">London Colney</div>
+                            <p>State-of-the-art training facilities where Arsenal prepare for every match. Behind-the-scenes access.</p>
+                            <button class="virtual-tour-btn" onclick="startVirtualTour('training')">Behind The Scenes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Stadium Information Hub</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background: rgba(220, 20, 60, 0.1); border-radius: 8px;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚇</div>
+                            <strong>Getting There</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Arsenal, Holloway Road, or Highbury & Islington stations</p>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(255, 215, 0, 0.1); border-radius: 8px;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🍺</div>
+                            <strong>Matchday Pubs</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">The Drayton Park, The Tollington, Twelve Pins</p>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background: rgba(27, 54, 93, 0.1); border-radius: 8px;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎵</div>
+                            <strong>Fan Chants</strong>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">North Bank atmosphere and famous Arsenal songs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tickets Tab -->
+            <div id="tickets" class="tab-content">
+                <div class="ticket-checker">
+                    <h2 style="color: white; margin-bottom: 1rem;">🎫 Ticket Availability Checker</h2>
+                    <p>Check real-time ticket availability for upcoming Arsenal matches</p>
+                    
+                    <div class="ticket-form">
+                        <div class="form-group">
+                            <label for="match-select">Select Match:</label>
+                            <select id="match-select">
+                                <option value="arsenal-mancity">Arsenal vs Man City - June 21</option>
+                                <option value="brighton-arsenal">Brighton vs Arsenal - June 25</option>
+                                <option value="arsenal-liverpool">Arsenal vs Liverpool - June 29</option>
+                                <option value="chelsea-arsenal">Chelsea vs Arsenal - July 5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ticket-type">Ticket Category:</label>
+                            <select id="ticket-type">
+                                <option value="category1">Category 1 (Premium)</option>
+                                <option value="category2">Category 2 (Standard)</option>
+                                <option value="category3">Category 3 (Value)</option>
+                                <option value="family">Family Stand</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ticket-quantity">Quantity:</label>
+                            <input type="number" id="ticket-quantity" min="1" max="6" value="2">
+                        </div>
+                    </div>
+                    
+                    <button class="check-tickets-btn" onclick="checkTicketAvailability()">Check Availability</button>
+                    
+                    <div class="ticket-result" id="ticket-result">
+                        <h3>✅ Tickets Available!</h3>
+                        <div style="margin: 1rem 0;">
+                            <strong>Category 2 Tickets - 2 Available</strong><br>
+                            Price: £85 per ticket<br>
+                            Section: North Bank Lower<br>
+                            Row: M, Seats: 15-16
+                        </div>
+                        <button style="background: white; color: var(--arsenal-red); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 1rem;">Reserve Now</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Season Ticket Information</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                        <div style="padding: 1.5rem; border: 2px solid var(--arsenal-red); border-radius: 8px; text-align: center;">
+                            <h3 style="color: var(--arsenal-red); margin-bottom: 1rem;">Gold Membership</h3>
+                            <div style="font-size: 2rem; color: var(--arsenal-gold); margin: 1rem 0;">£1,200</div>
+                            <ul style="text-align: left; margin: 1rem 0;">
+                                <li>Priority ticket access</li>
+                                <li>Exclusive member events</li>
+                                <li>Season ticket priority</li>
+                                <li>Member merchandise discounts</li>
+                            </ul>
+                            <button style="background: var(--arsenal-red); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; width: 100%;">Join Waiting List</button>
+                        </div>
+                        
+                        <div style="padding: 1.5rem; border: 2px solid var(--arsenal-gold); border-radius: 8px; text-align: center;">
+                            <h3 style="color: var(--arsenal-gold); margin-bottom: 1rem;">Red Membership</h3>
+                            <div style="font-size: 2rem; color: var(--arsenal-red); margin: 1rem 0;">£45</div>
+                            <ul style="text-align: left; margin: 1rem 0;">
+                                <li>Match ticket access</li>
+                                <li>Member newsletter</li>
+                                <li>Digital membership card</li>
+                                <li>Exclusive content access</li>
+                            </ul>
+                            <button style="background: var(--arsenal-gold); color: var(--arsenal-navy); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; width: 100%;">Join Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Tab -->
+            <div id="stats" class="tab-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">74</div>
+                        <div class="stat-label">Points This Season</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Wins</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Draws</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Losses</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89</div>
+                        <div class="stat-label">Goals Scored</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">45</div>
+                        <div class="stat-label">Goals Conceded</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Performance Analytics</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+                        <div>
+                            <h3 style="color: var(--arsenal-red); margin-bottom: 1rem;">Home vs Away</h3>
+                            <div style="margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span>Home Wins</span>
+                                    <span>15/19 (79%)</span>
+                                </div>
+                                <div style="background: #f0f0f0; height: 8px; border-radius: 4px;">
+                                    <div style="background: var(--arsenal-red); height: 100%; width: 79%; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span>Away Wins</span>
+                                    <span>9/19 (47%)</span>
+                                </div>
+                                <div style="background: #f0f0f0; height: 8px; border-radius: 4px;">
+                                    <div style="background: var(--arsenal-gold); height: 100%; width: 47%; border-radius: 4px;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="color: var(--arsenal-red); margin-bottom: 1rem;">Top Scorers</h3>
+                            <div style="margin-bottom: 0.8rem;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>🇬🇧 Bukayo Saka</span>
+                                    <span><strong>18 goals</strong></span>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 0.8rem;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>🇧🇷 Gabriel Jesus</span>
+                                    <span><strong>15 goals</strong></span>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 0.8rem;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>🇩🇪 Kai Havertz</span>
+                                    <span><strong>13 goals</strong></span>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 0.8rem;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>🇳🇴 Martin Ødegaard</span>
+                                    <span><strong>11 goals</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>League Comparison</h2>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                            <thead>
+                                <tr style="background: var(--arsenal-red); color: white;">
+                                    <th style="padding: 1rem; text-align: left;">Position</th>
+                                    <th style="padding: 1rem; text-align: left;">Team</th>
+                                    <th style="padding: 1rem; text-align: center;">Points</th>
+                                    <th style="padding: 1rem; text-align: center;">GD</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: rgba(220, 20, 60, 0.1);">
+                                    <td style="padding: 0.8rem; font-weight: bold;">1</td>
+                                    <td style="padding: 0.8rem;">Manchester City</td>
+                                    <td style="padding: 0.8rem; text-align: center; font-weight: bold;">76</td>
+                                    <td style="padding: 0.8rem; text-align: center;">+52</td>
+                                </tr>
+                                <tr style="background: rgba(255, 215, 0, 0.1);">
+                                    <td style="padding: 0.8rem; font-weight: bold; color: var(--arsenal-red);">2</td>
+                                    <td style="padding: 0.8rem; font-weight: bold; color: var(--arsenal-red);">Arsenal</td>
+                                    <td style="padding: 0.8rem; text-align: center; font-weight: bold; color: var(--arsenal-red);">74</td>
+                                    <td style="padding: 0.8rem; text-align: center; color: var(--arsenal-red);">+44</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.8rem; font-weight: bold;">3</td>
+                                    <td style="padding: 0.8rem;">Liverpool</td>
+                                    <td style="padding: 0.8rem; text-align: center; font-weight: bold;">71</td>
+                                    <td style="padding: 0.8rem; text-align: center;">+38</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 0.8rem; font-weight: bold;">4</td>
+                                    <td style="padding: 0.8rem;">Chelsea</td>
+                                    <td style="padding: 0.8rem; text-align: center; font-weight: bold;">63</td>
+                                    <td style="padding: 0.8rem; text-align: center;">+24</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Tab -->
+            <div id="live" class="tab-content">
+                <div class="live-score">
+                    <div class="live-indicator">🔴 LIVE MATCH</div>
+                    <h2 style="margin-bottom: 1rem;">Arsenal vs Manchester City</h2>
+                    <div class="score-display" id="live-score">2 - 1</div>
+                    <div style="margin: 1rem 0;">
+                        <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">⏱️ 78'</span>
+                        <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px; margin: 0 0.5rem;">Emirates Stadium</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Live Match Events</h2>
+                    <div id="match-events" style="max-height: 400px; overflow-y: auto;">
+                        <div style="padding: 1rem; border-left: 4px solid var(--arsenal-red); margin-bottom: 1rem; background: rgba(220, 20, 60, 0.05);">
+                            <div style="font-weight: bold; color: var(--arsenal-red);">⚽ GOAL! 78' - Bukayo Saka</div>
+                            <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">Beautiful finish from Saka after a clever pass from Ødegaard. Arsenal take the lead!</div>
+                        </div>
+                        
+                        <div style="padding: 1rem; border-left: 4px solid #6CABDD; margin-bottom: 1rem; background: rgba(108, 171, 221, 0.05);">
+                            <div style="font-weight: bold; color: #6CABDD;">⚽ GOAL! 65' - Erling Haaland</div>
+                            <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">Clinical finish from the penalty spot. City level the score.</div>
+                        </div>
+
+                        <div style="padding: 1rem; border-left: 4px solid var(--arsenal-red); margin-bottom: 1rem; background: rgba(220, 20, 60, 0.05);">
+                            <div style="font-weight: bold; color: var(--arsenal-red);">⚽ GOAL! 23' - Gabriel Jesus</div>
+                            <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">Jesus opens the scoring with a powerful header from Rice's corner kick!</div>
+                        </div>
+
+                        <div style="padding: 1rem; border-left: 4px solid var(--warning); margin-bottom: 1rem; background: rgba(243, 156, 18, 0.05);">
+                            <div style="font-weight: bold; color: var(--warning);">🟨 YELLOW CARD! 45' - Declan Rice</div>
+                            <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.5rem;">Rice picks up a booking for a late challenge on De Bruyne.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Live Statistics</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--arsenal-red); font-weight: bold;">67%</div>
+                            <div style="color: var(--text-light);">Possession</div>
+                            <div style="background: #f0f0f0; height: 8px; border-radius: 4px; margin-top: 0.5rem;">
+                                <div style="background: var(--arsenal-red); height: 100%; width: 67%; border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--arsenal-red); font-weight: bold;">8</div>
+                            <div style="color: var(--text-light);">Shots on Target</div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--arsenal-red); font-weight: bold;">5</div>
+                            <div style="color: var(--text-light);">Corners</div>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; color: var(--arsenal-red); font-weight: bold;">2</div>
+                            <div style="color: var(--text-light);">Fouls</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Prediction Modal -->
+    <div id="prediction-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePredictionModal()">&times;</span>
+            <div class="prediction-form">
+                <h2 style="color: var(--arsenal-red); margin-bottom: 1.5rem;" id="prediction-title">Make Your Prediction</h2>
+                <div class="score-input">
+                    <input type="number" id="home-score" min="0" max="10" value="2">
+                    <span style="font-size: 1.5rem; font-weight: bold;">-</span>
+                    <input type="number" id="away-score" min="0" max="10" value="1">
+                </div>
+                <button class="submit-prediction" onclick="submitPrediction()">Submit Prediction</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Arsenal Fan Hub</h3>
+                    <p>Your ultimate Arsenal experience. Stay connected with the latest news, match updates, and community discussions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <a href="index.html" style="display: block; margin: 0.5rem 0;">Home</a>
+                    <a href="squad.html" style="display: block; margin: 0.5rem 0;">Squad & Stats</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Contact Us</a>
+                </div>
+                <div>
+                    <h3>Follow Arsenal</h3>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Official Website</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Twitter</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,777 @@
+ :root {
+            --arsenal-red: #DC143C;
+            --arsenal-gold: #FFD700;
+            --arsenal-navy: #1B365D;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+            --background-light: #F8F9FA;
+            --white: #ffffff;
+            --success: #27AE60;
+            --warning: #F39C12;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --background-light: #1a1a1a;
+            --white: #2d2d2d;
+            --text-dark: #e0e0e0;
+            --text-light: #b0b0b0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--arsenal-red), var(--arsenal-navy));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .nav a:hover, .nav a.active {
+            background-color: rgba(255, 215, 0, 0.2);
+            color: var(--arsenal-gold);
+        }
+
+        .theme-toggle, .mobile-menu {
+            background: rgba(255, 215, 0, 0.2);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover, .mobile-menu:hover {
+            background-color: var(--arsenal-gold);
+            color: var(--arsenal-navy);
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 2rem 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--arsenal-red), var(--arsenal-navy));
+            color: white;
+            padding: 3rem 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+        }
+
+        .page-header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 0.5rem;
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .tab.active {
+            background: var(--arsenal-red);
+            color: white;
+        }
+
+        .tab:hover:not(.active) {
+            background: rgba(220, 20, 60, 0.1);
+            color: var(--arsenal-red);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--arsenal-red);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        /* Fixtures Grid */
+        .fixtures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .fixture-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fixture-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--arsenal-red), var(--arsenal-gold));
+        }
+
+        .fixture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .fixture-teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .team-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--arsenal-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .vs {
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .fixture-info {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .predict-btn {
+            background: var(--arsenal-red);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .predict-btn:hover {
+            background: var(--arsenal-navy);
+            transform: translateY(-1px);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--arsenal-red), var(--arsenal-gold));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            width: 45%;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--arsenal-red);
+            border-radius: 50%;
+            border: 4px solid var(--arsenal-gold);
+            z-index: 2;
+        }
+
+        .match-result {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: var(--arsenal-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .match-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Stadium Info */
+        .stadium-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stadium-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .stadium-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .stadium-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--arsenal-red), var(--arsenal-navy));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .stadium-details {
+            padding: 1.5rem;
+        }
+
+        .stadium-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: var(--arsenal-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .stadium-capacity {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .virtual-tour-btn {
+            background: var(--arsenal-gold);
+            color: var(--arsenal-navy);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .virtual-tour-btn:hover {
+            background: var(--arsenal-navy);
+            color: var(--arsenal-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Ticket Checker */
+        .ticket-checker {
+            background: linear-gradient(135deg, var(--arsenal-red), var(--arsenal-navy));
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .ticket-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 0.7rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .check-tickets-btn {
+            background: var(--arsenal-gold);
+            color: var(--arsenal-navy);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .check-tickets-btn:hover {
+            background: white;
+            color: var(--arsenal-red);
+            transform: translateY(-2px);
+        }
+
+        .ticket-result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            display: none;
+        }
+
+        /* Stats Dashboard */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--arsenal-red);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--arsenal-red);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-weight: 600;
+            margin-top: 0.5rem;
+}
+
+        /* Live Score Simulator */
+        .live-score {
+            background: linear-gradient(135deg, var(--success), #2ECC71);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .score-display {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .live-indicator {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--arsenal-navy);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h3 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--arsenal-gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer a:hover {
+            color: var(--arsenal-gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 50px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-marker {
+                left: 20px;
+            }
+
+            .ticket-form {
+                grid-template-columns: 1fr;
+            }
+
+            .fixtures-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stadium-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .page-header {
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .score-display {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Prediction Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .close:hover {
+            color: var(--arsenal-red);
+        }
+
+        .prediction-form {
+            text-align: center;
+        }
+
+        .score-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .score-input input {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: 2px solid var(--arsenal-red);
+            border-radius: var(--border-radius);
+        }
+
+        .submit-prediction {
+            background: var(--arsenal-red);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .submit-prediction:hover {
+            background: var(--arsenal-navy);
+            transform: translateY(-2px);
+        }

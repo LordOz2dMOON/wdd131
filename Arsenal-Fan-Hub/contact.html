@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsenal Fan Hub - Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Open+Sans:wght@400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <script src="scripts/contact.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">⚽ Arsenal Fan Hub</a>
+                <nav class="nav" id="nav">
+                    <a href="index.html">Home</a>
+                    <a href="squad.html">Squad</a>
+                    <a href="matches.html">Matches</a>
+                    <a href="contact.html" class="active">Contact</a>
+                </nav>
+                <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+                <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <h1>Contact Arsenal Fan Hub</h1>
+                <p>We'd love to hear from you - feedback, questions, or just to connect with fellow fans</p>
+            </section>
+
+            <div class="content-grid contact-grid">
+                <div class="main-content">
+                    <!-- Contact Form Tabs -->
+                    <div class="form-tabs">
+                        <button class="form-tab active" data-form="general">General Inquiry</button>
+                        <button class="form-tab" data-form="bug">Report a Bug</button>
+                        <button class="form-tab" data-form="feature">Feature Request</button>
+                        <button class="form-tab" data-form="story">Share Your Story</button>
+                    </div>
+
+                    <!-- Forms Container -->
+                    <div class="forms-container">
+                        <!-- General Contact Form -->
+                        <form id="general-form" class="contact-form active">
+                            <div class="form-group">
+                                <label for="name">Your Name*</label>
+                                <input type="text" id="name" name="name" required>
+                                <div class="error-message" id="name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address*</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="error-message" id="email-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message*</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                                <div class="error-message" id="message-error"></div>
+                                <div class="char-counter"><span id="message-count">0</span>/500</div>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+
+                        <!-- Bug Report Form -->
+                        <form id="bug-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="bug-name">Your Name*</label>
+                                <input type="text" id="bug-name" name="name" required>
+                                <div class="error-message" id="bug-name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bug-email">Email Address*</label>
+                                <input type="email" id="bug-email" name="email" required>
+                                <div class="error-message" id="bug-email-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bug-page">Where did you encounter the issue?*</label>
+                                <input type="text" id="bug-page" name="page" required>
+                                <div class="error-message" id="bug-page-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bug-description">Describe the issue*</label>
+                                <textarea id="bug-description" name="description" rows="6" required></textarea>
+                                <div class="error-message" id="bug-description-error"></div>
+                                <div class="char-counter"><span id="bug-description-count">0</span>/500</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bug-screenshot">Screenshot (optional)</label>
+                                <input type="file" id="bug-screenshot" name="screenshot" accept="image/*">
+                            </div>
+                            <button type="submit" class="btn">Report Bug</button>
+                        </form>
+
+                        <!-- Feature Request Form -->
+                        <form id="feature-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="feature-name">Your Name*</label>
+                                <input type="text" id="feature-name" name="name" required>
+                                <div class="error-message" id="feature-name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="feature-email">Email Address*</label>
+                                <input type="email" id="feature-email" name="email" required>
+                                <div class="error-message" id="feature-email-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="feature-title">Feature Title*</label>
+                                <input type="text" id="feature-title" name="title" required>
+                                <div class="error-message" id="feature-title-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="feature-description">Describe your feature idea*</label>
+                                <textarea id="feature-description" name="description" rows="6" required></textarea>
+                                <div class="error-message" id="feature-description-error"></div>
+                                <div class="char-counter"><span id="feature-description-count">0</span>/500</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="feature-benefit">How would this benefit fans?*</label>
+                                <textarea id="feature-benefit" name="benefit" rows="4" required></textarea>
+                                <div class="error-message" id="feature-benefit-error"></div>
+                            </div>
+                            <button type="submit" class="btn">Submit Feature Request</button>
+                        </form>
+
+                        <!-- Fan Story Form -->
+                        <form id="story-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="story-name">Your Name*</label>
+                                <input type="text" id="story-name" name="name" required>
+                                <div class="error-message" id="story-name-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="story-email">Email Address*</label>
+                                <input type="email" id="story-email" name="email" required>
+                                <div class="error-message" id="story-email-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="story-title">Story Title*</label>
+                                <input type="text" id="story-title" name="title" required>
+                                <div class="error-message" id="story-title-error"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="story-content">Your Arsenal Story*</label>
+                                <textarea id="story-content" name="content" rows="8" required></textarea>
+                                <div class="error-message" id="story-content-error"></div>
+                                <div class="char-counter"><span id="story-content-count">0</span>/1000</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="story-photo">Photo (optional)</label>
+                                <input type="file" id="story-photo" name="photo" accept="image/*">
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="story-consent" name="consent" required>
+                                <label for="story-consent">I agree to have my story shared on Arsenal Fan Hub*</label>
+                                <div class="error-message" id="story-consent-error"></div>
+                            </div>
+                            <button type="submit" class="btn">Share Your Story</button>
+                        </form>
+                    </div>
+
+                    <!-- Form Success Message -->
+                    <div id="form-success" class="success-message">
+                        <div class="success-icon">✓</div>
+                        <h3>Thank You!</h3>
+                        <p>Your message has been sent successfully. We'll get back to you soon.</p>
+                        <button class="btn btn-secondary" onclick="resetForm()">Send Another Message</button>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <div class="faq-section">
+                        <h2>Frequently Asked Questions</h2>
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Search FAQs..." id="faq-search">
+                        </div>
+                        <div class="faq-accordion">
+                            <div class="faq-item">
+                                <button class="faq-question">How can I report an issue with the website?</button>
+                                <div class="faq-answer">
+                                    <p>You can report any issues using our Bug Report form above. Please include as much detail as possible about the problem, including which page you were on and what you were trying to do when the issue occurred.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">Can I suggest new features for the Arsenal Fan Hub?</button>
+                                <div class="faq-answer">
+                                    <p>Absolutely! We welcome all feature suggestions. Use the Feature Request form to share your ideas with us. Tell us what you'd like to see and how it would improve your experience as a fan.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">How long does it take to get a response?</button>
+                                <div class="faq-answer">
+                                    <p>We aim to respond to all inquiries within 48 hours. During busy match periods, it may take slightly longer. For urgent issues, please mention "URGENT" in your subject line.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">Can I share my personal Arsenal stories?</button>
+                                <div class="faq-answer">
+                                    <p>Yes! We love hearing from fans about their Arsenal experiences. Use the Share Your Story form to submit your memories, and with your permission, we may feature them on our site.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">Is there a mobile app for Arsenal Fan Hub?</button>
+                                <div class="faq-answer">
+                                    <p>Not currently, but our website is fully responsive and works great on mobile devices. If we develop an app in the future, we'll announce it through our newsletter.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <!-- Newsletter Signup -->
+                    <div class="card newsletter-card">
+                        <h2>Stay Updated</h2>
+                        <p>Subscribe to our newsletter for the latest Arsenal news and updates</p>
+                        <form id="newsletter-form">
+                            <div class="form-group">
+                                <label for="newsletter-name">Your Name</label>
+                                <input type="text" id="newsletter-name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="newsletter-email">Email Address*</label>
+                                <input type="email" id="newsletter-email" name="email" required>
+                                <div class="error-message" id="newsletter-email-error"></div>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletter-updates" name="updates" checked>
+                                <label for="newsletter-updates">Match updates</label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletter-news" name="news" checked>
+                                <label for="newsletter-news">Club news</label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="newsletter-events" name="events">
+                                <label for="newsletter-events">Fan events</label>
+                            </div>
+                            <button type="submit" class="btn">Subscribe</button>
+                        </form>
+                        <div id="newsletter-success" class="success-message">
+                            <div class="success-icon">✓</div>
+                            <h3>Subscribed!</h3>
+                            <p>Thank you for joining our newsletter.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="card contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>contact@arsenalfanhub.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🌐</div>
+                            <div>
+                                <h3>Social Media</h3>
+                                <div class="social-links">
+                                    <a href="#" class="social-link">Twitter</a>
+                                    <a href="#" class="social-link">Facebook</a>
+                                    <a href="#" class="social-link">Instagram</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">🏟️</div>
+                            <div>
+                                <h3>Matchday Support</h3>
+                                <p>Available at Emirates Stadium on matchdays</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonials -->
+                    <div class="card testimonials">
+                        <h2>Fan Testimonials</h2>
+                        <div class="testimonial-slider">
+                            <div class="testimonial active">
+                                <div class="testimonial-content">
+                                    "Arsenal Fan Hub is my go-to for all things Arsenal. The community is fantastic!"
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-rating">★★★★★</div>
+                                    <div class="author-name">- Sarah K.</div>
+                                </div>
+                            </div>
+                            <div class="testimonial">
+                                <div class="testimonial-content">
+                                    "I reported a bug and the team fixed it within a day. Amazing support!"
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-rating">★★★★☆</div>
+                                    <div class="author-name">- James L.</div>
+                                </div>
+                            </div>
+                            <div class="testimonial">
+                                <div class="testimonial-content">
+                                    "The newsletter keeps me updated with everything I need to know. COYG!"
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-rating">★★★★★</div>
+                                    <div class="author-name">- Mohammed R.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-controls">
+                            <button class="testimonial-prev">←</button>
+                            <div class="testimonial-dots">
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <button class="testimonial-next">→</button>
+                        </div>
+                        <button class="btn btn-secondary" onclick="showTestimonialForm()">Share Your Experience</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Arsenal Fan Hub</h3>
+                    <p>Your ultimate Arsenal experience. Stay connected with the latest news, match updates, and community discussions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <a href="index.html" style="display: block; margin: 0.5rem 0;">Home</a>
+                    <a href="squad.html" style="display: block; margin: 0.5rem 0;">Squad & Stats</a>
+                    <a href="matches.html" style="display: block; margin: 0.5rem 0;">Match Center</a>
+                </div>
+                <div>
+                    <h3>Follow Arsenal</h3>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Official Website</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Twitter</a>
+                    <a href="#" style="display: block; margin: 0.5rem 0;">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
