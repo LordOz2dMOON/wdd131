@@ -635,24 +635,3 @@
 .formation-line.attack { top: 65%; }
 .formation-line.striker { top: 85%; }
 
-/* Mobile styles for footer */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-  
-  .footer-content > div {
-    text-align: center;
-  }
-  
-  .footer-content h3 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .footer-content a {
-    text-align: center;
-  }
-}
