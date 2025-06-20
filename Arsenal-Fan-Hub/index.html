@@ -20,14 +20,14 @@
       <div class="container">
         <div class="header-content">
           <a href="#" class="logo">⚽ Arsenal Fan Hub</a>
-          <nav class="nav" id="nav">
+          <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
             <a href="#" class="active">Home</a>
             <a href="squad.html">Squad</a>
             <a href="matches.html">Matches</a>
             <a href="contact.html">Contact</a>
           </nav>
-          <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
-          <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙 Dark</button>
+          <button class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
         </div>
       </div>
     </header>
@@ -35,12 +35,16 @@
     <main class="main">
       <div class="container">
         <div class="search-container">
+          <label for="searchInput" class="visually-hidden">Search Arsenal content</label>
           <input
             type="text"
             class="search-input"
             placeholder="Search Arsenal news, players, matches..."
             id="searchInput"
+            name="search"
             onkeyup="searchContent()"
+            aria-label="Search Arsenal news, players, matches"
+            role="searchbox"
           />
         </div>
 
@@ -60,21 +64,21 @@
 
           <div class="countdown-container">
             <div class="countdown-title">Next Match Countdown</div>
-            <div class="countdown" id="countdown">
+            <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-label="Countdown to next Arsenal match">
               <div class="countdown-item">
-                <span class="countdown-number" id="days">0</span>
+                <span class="countdown-number" id="days" aria-label="days">0</span>
                 <span class="countdown-label">Days</span>
               </div>
               <div class="countdown-item">
-                <span class="countdown-number" id="hours">0</span>
+                <span class="countdown-number" id="hours" aria-label="hours">0</span>
                 <span class="countdown-label">Hours</span>
               </div>
               <div class="countdown-item">
-                <span class="countdown-number" id="minutes">0</span>
+                <span class="countdown-number" id="minutes" aria-label="minutes">0</span>
                 <span class="countdown-label">Minutes</span>
               </div>
               <div class="countdown-item">
-                <span class="countdown-number" id="seconds">0</span>
+                <span class="countdown-number" id="seconds" aria-label="seconds">0</span>
                 <span class="countdown-label">Seconds</span>
               </div>
             </div>
@@ -88,118 +92,150 @@
           <div class="main-content">
             <div class="card">
               <h2>Latest Arsenal News</h2>
-              <div id="newsContainer">
-                <div class="news-item">
-                  <div class="news-meta">2 hours ago</div>
+              <div id="newsContainer" role="feed" aria-label="Latest Arsenal news">
+                <article class="news-item">
+                  <div class="news-meta">
+                    <time datetime="2025-06-20T16:00:00">2 hours ago</time>
+                  </div>
                   <h3>Arsenal Prepare for Crucial Manchester City Clash</h3>
                   <p>
                     Mikel Arteta's side are gearing up for what could be a
                     title-defining match against the current champions. The
                     Gunners have been in excellent form...
                   </p>
-                </div>
-                <div class="news-item">
-                  <div class="news-meta">5 hours ago</div>
+                </article>
+                <article class="news-item">
+                  <div class="news-meta">
+                    <time datetime="2025-06-20T13:00:00">5 hours ago</time>
+                  </div>
                   <h3>Saka Injury Update: Positive Signs for Weekend</h3>
                   <p>
                     Bukayo Saka is expected to return to full training this week
                     after recovering from a minor knock sustained during
                     international duty...
                   </p>
-                </div>
-                <div class="news-item">
-                  <div class="news-meta">1 day ago</div>
+                </article>
+                <article class="news-item">
+                  <div class="news-meta">
+                    <time datetime="2025-06-19T18:00:00">1 day ago</time>
+                  </div>
                   <h3>Emirates Stadium Expansion Plans Revealed</h3>
                   <p>
                     Arsenal have unveiled ambitious plans to increase the
                     capacity of the Emirates Stadium by 10,000 seats, with
                     construction set to begin...
                   </p>
-                </div>
+                </article>
               </div>
-              <button class="btn" onclick="loadMoreNews()">
+              <button class="btn" onclick="loadMoreNews()" aria-label="Load more Arsenal news">
                 Load More News
               </button>
             </div>
 
             <div class="card">
               <h2>Recent Results</h2>
-              <div class="news-item">
-                <h3>Arsenal 3-1 Liverpool</h3>
-                <p>
-                  A dominant display at the Emirates saw the Gunners secure a
-                  crucial three points. Goals from Ødegaard, Saka, and Jesus
-                  sealed the victory.
-                </p>
-              </div>
-              <div class="news-item">
-                <h3>Chelsea 1-2 Arsenal</h3>
-                <p>
-                  A thrilling London derby victory at Stamford Bridge. Late
-                  goals from Martinelli and Rice completed a stunning comeback.
-                </p>
+              <div role="list" aria-label="Recent match results">
+                <article class="news-item" role="listitem">
+                  <h3>Arsenal 3-1 Liverpool</h3>
+                  <p>
+                    A dominant display at the Emirates saw the Gunners secure a
+                    crucial three points. Goals from Ødegaard, Saka, and Jesus
+                    sealed the victory.
+                  </p>
+                </article>
+                <article class="news-item" role="listitem">
+                  <h3>Chelsea 1-2 Arsenal</h3>
+                  <p>
+                    A thrilling London derby victory at Stamford Bridge. Late
+                    goals from Martinelli and Rice completed a stunning comeback.
+                  </p>
+                </article>
               </div>
             </div>
           </div>
 
           <div class="sidebar">
-            <div class="league-position">
-              <div class="position-number">2</div>
+            <div class="league-position" role="status" aria-label="Current Premier League position">
+              <div class="position-number" aria-label="Position 2">2</div>
               <h3>Premier League Position</h3>
               <p>74 points • 24 wins • 2 draws • 12 losses</p>
             </div>
 
             <div class="card">
               <h2>Fan Poll of the Week</h2>
-              <h3>Who should start against Manchester City?</h3>
-              <div class="poll-container">
-                <div class="poll-option" onclick="vote('havertz')">
-                  <input type="radio" name="poll" value="havertz" />
-                  <span>Kai Havertz</span>
+              <form role="form" aria-labelledby="poll-question">
+                <fieldset>
+                  <legend id="poll-question">Who should start against Manchester City?</legend>
+                  <div class="poll-container" role="radiogroup" aria-labelledby="poll-question">
+                    <div class="poll-option">
+                      <input 
+                        type="radio" 
+                        name="poll" 
+                        value="havertz" 
+                        id="poll-havertz"
+                        onclick="vote('havertz')"
+                      />
+                      <label for="poll-havertz">Kai Havertz</label>
+                    </div>
+                    <div class="poll-option">
+                      <input 
+                        type="radio" 
+                        name="poll" 
+                        value="jesus" 
+                        id="poll-jesus"
+                        onclick="vote('jesus')"
+                      />
+                      <label for="poll-jesus">Gabriel Jesus</label>
+                    </div>
+                    <div class="poll-option">
+                      <input 
+                        type="radio" 
+                        name="poll" 
+                        value="nketiah" 
+                        id="poll-nketiah"
+                        onclick="vote('nketiah')"
+                      />
+                      <label for="poll-nketiah">Eddie Nketiah</label>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-secondary" onclick="showPollResults()" aria-describedby="poll-results">
+                    Vote & See Results
+                  </button>
+                </fieldset>
+              </form>
+              <div class="poll-result" id="pollResults" aria-live="polite" role="region" aria-labelledby="poll-results-heading">
+                <h4 id="poll-results-heading">Poll Results:</h4>
+                <div class="result-item">
+                  <span>Kai Havertz:</span>
+                  <div class="result-bar" style="width: 45%" aria-label="45% of votes"></div>
+                  <span aria-label="45 percent">45%</span>
                 </div>
-                <div class="poll-option" onclick="vote('jesus')">
-                  <input type="radio" name="poll" value="jesus" />
-                  <span>Gabriel Jesus</span>
+                <div class="result-item">
+                  <span>Gabriel Jesus:</span>
+                  <div class="result-bar" style="width: 35%" aria-label="35% of votes"></div>
+                  <span aria-label="35 percent">35%</span>
                 </div>
-                <div class="poll-option" onclick="vote('nketiah')">
-                  <input type="radio" name="poll" value="nketiah" />
-                  <span>Eddie Nketiah</span>
-                </div>
-              </div>
-              <button class="btn btn-secondary" onclick="showPollResults()">
-                Vote & See Results
-              </button>
-              <div class="poll-result" id="pollResults">
-                <h4>Poll Results:</h4>
-                <div>
-                  Kai Havertz:
-                  <div class="result-bar" style="width: 45%"></div>
-                  45%
-                </div>
-                <div>
-                  Gabriel Jesus:
-                  <div class="result-bar" style="width: 35%"></div>
-                  35%
-                </div>
-                <div>
-                  Eddie Nketiah:
-                  <div class="result-bar" style="width: 20%"></div>
-                  20%
+                <div class="result-item">
+                  <span>Eddie Nketiah:</span>
+                  <div class="result-bar" style="width: 20%" aria-label="20% of votes"></div>
+                  <span aria-label="20 percent">20%</span>
                 </div>
               </div>
             </div>
 
             <div class="card">
               <h2>Upcoming Fixtures</h2>
-              <div class="news-item">
-                <div class="news-meta">This Weekend</div>
-                <h3>Arsenal vs Manchester City</h3>
-                <p>Emirates Stadium • 3:00 PM</p>
-              </div>
-              <div class="news-item">
-                <div class="news-meta">Next Week</div>
-                <h3>Brighton vs Arsenal</h3>
-                <p>Amex Stadium • 5:30 PM</p>
+              <div role="list" aria-label="Upcoming Arsenal fixtures">
+                <article class="news-item" role="listitem">
+                  <div class="news-meta">This Weekend</div>
+                  <h3>Arsenal vs Manchester City</h3>
+                  <p>Emirates Stadium • <time datetime="15:00">3:00 PM</time></p>
+                </article>
+                <article class="news-item" role="listitem">
+                  <div class="news-meta">Next Week</div>
+                  <h3>Brighton vs Arsenal</h3>
+                  <p>Amex Stadium • <time datetime="17:30">5:30 PM</time></p>
+                </article>
               </div>
             </div>
           </div>
@@ -207,7 +243,7 @@
       </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div class="container">
         <div class="footer-content">
           <div>
@@ -219,24 +255,105 @@
           </div>
           <div>
             <h3>Quick Links</h3>
-            <a href="#" style="display: block; margin: 0.5rem 0"
-              >Squad & Stats</a
-            >
-            <a href="#" style="display: block; margin: 0.5rem 0"
-              >Match Center</a
-            >
-            <a href="#" style="display: block; margin: 0.5rem 0">Contact Us</a>
+            <nav role="navigation" aria-label="Footer navigation">
+              <a href="squad.html" style="display: block; margin: 0.5rem 0">Squad & Stats</a>
+              <a href="matches.html" style="display: block; margin: 0.5rem 0">Match Center</a>
+              <a href="contact.html" style="display: block; margin: 0.5rem 0">Contact Us</a>
+            </nav>
           </div>
           <div>
             <h3>Follow Arsenal</h3>
-            <a href="#" style="display: block; margin: 0.5rem 0"
-              >Official Website</a
-            >
-            <a href="#" style="display: block; margin: 0.5rem 0">Twitter</a>
-            <a href="#" style="display: block; margin: 0.5rem 0">Instagram</a>
+            <nav role="navigation" aria-label="Social media links">
+              <a href="#" style="display: block; margin: 0.5rem 0" aria-label="Arsenal official website">Official Website</a>
+              <a href="#" style="display: block; margin: 0.5rem 0" aria-label="Arsenal on Twitter">Twitter</a>
+              <a href="#" style="display: block; margin: 0.5rem 0" aria-label="Arsenal on Instagram">Instagram</a>
+            </nav>
           </div>
         </div>
       </div>
     </footer>
+
+    <style>
+      /* Visually hidden class for screen reader only content */
+      .visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+
+      /* Poll option styling improvements */
+      .poll-option {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+      }
+
+      .poll-option:hover {
+        background-color: rgba(220, 20, 60, 0.1);
+      }
+
+      .poll-option input[type="radio"] {
+        margin: 0;
+        width: 16px;
+        height: 16px;
+      }
+
+      .poll-option label {
+        cursor: pointer;
+        flex: 1;
+        margin: 0;
+      }
+
+      /* Result bar improvements */
+      .result-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .result-bar {
+        height: 20px;
+        background-color: var(--arsenal-red, #dc143c);
+        border-radius: 10px;
+        flex: 1;
+        max-width: 200px;
+      }
+
+      /* Focus styles for better keyboard navigation */
+      .poll-option:focus-within {
+        outline: 2px solid var(--arsenal-red, #dc143c);
+        outline-offset: 2px;
+      }
+
+      button:focus,
+      input:focus {
+        outline: 2px solid var(--arsenal-red, #dc143c);
+        outline-offset: 2px;
+      }
+
+      /* Ensure proper fieldset styling */
+      fieldset {
+        border: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      legend {
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+    </style>
   </body>
 </html>
